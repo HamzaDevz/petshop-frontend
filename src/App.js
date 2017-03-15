@@ -1,9 +1,15 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import Pets from './Pets';
+import Form from './Form';
 import './App.css';
 
 class App extends Component {
+  constructor(props) {
+    super(props);
+    // this.state = {show: true};
+  }
+
   render() {
     return (
       <div className="App">
@@ -11,7 +17,7 @@ class App extends Component {
           <img src={logo} className="App-logo" alt="logo" />
           <h2>Bienvenue dans votre animalerie</h2>
         </div>
-        <button>Add pet</button>
+        <Form />
         <Pets />
       </div>
     );

@@ -10,32 +10,14 @@ const TextCell = ({rowIndex, data, col, ...props}) => (
   </Cell>
 );
 
-const ButtonAdd = () => (
-  <button>Add new Pet</button>
-);
-
-const ButtonDelete = () => (
+const ButtonDelete = (
   <button>X</button>
 );
 
 class Pets extends Component {
   constructor(props) {
     super(props);
-
     this.state = { pets: [] };
-    this.defaultOptions = {
-      url: '',
-      method: 'POST',
-      mode: 'no-cors',
-      headers: {
-        'Access-Control-Allow-Origin':'*'
-      },
-      body: null
-    };
-  }
-
-  deletePet (id) {
-    console.log(id);
   }
 
   parseJSON(response) {
@@ -45,7 +27,7 @@ class Pets extends Component {
   componentDidMount() {
     let vm = this;
 
-    axios.get('http://localhost:3000/pets')
+    axios.get('http://node-api.hamzatei.fr/pets')
       .then(this.parseJSON)
       .then(function (data) {
         vm.setState(data);
